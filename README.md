@@ -15,9 +15,13 @@ O exercício reúne estruturas de dados e algoritmos estudados durante a discipl
 - Buscar um chamado pelo protocolo.
 - Consultar o total de chamados e a contagem por prioridade.
 
-## Exemplo de execução
+## Demonstração
 
-Este trecho resume uma execução do programa. Os menus repetidos entre as operações foram omitidos para facilitar a leitura.
+Menu do programa em execução:
+
+![Menu da Central de Atendimento em execução](assets/central-atendimento-menu.png)
+
+O trecho abaixo resume uma execução: um chamado é cadastrado, atendido e incluído no relatório. Os menus repetidos entre as operações foram omitidos para facilitar a leitura.
 
 ```text
 === CENTRAL DE ATENDIMENTO ===

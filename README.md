@@ -33,7 +33,7 @@ O resultado esperado é **9/9 testes passaram**. Para conferir também casos de 
 python3 desafio_final_testes_complementares.py
 ```
 
-O resultado esperado é **11/11 testes complementares passaram**.
+O resultado esperado é **13/13 testes complementares passaram**.
 
 ## Arquivos
 

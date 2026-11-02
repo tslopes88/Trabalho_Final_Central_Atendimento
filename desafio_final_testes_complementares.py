@@ -1,4 +1,7 @@
 from collections import deque
+from contextlib import redirect_stdout
+from io import StringIO
+from unittest.mock import patch
 import desafio_final as d
 
 
@@ -125,6 +128,30 @@ def teste_abrir_chamado_dados_invalidos():
             pass
 
 
+def testar_cadastro_invalido_no_menu(entradas, mensagem_erro):
+    saida = StringIO()
+    with patch("builtins.input", side_effect=entradas), redirect_stdout(saida):
+        d.menu()
+
+    texto = saida.getvalue()
+    assert mensagem_erro in texto
+    assert "Ate a proxima!" in texto
+
+
+def teste_nome_vazio_no_menu():
+    testar_cadastro_invalido_no_menu(
+        ["1", "", "Descricao", "2", "0"],
+        "Nome do chamado deve ser informado.",
+    )
+
+
+def teste_descricao_vazia_no_menu():
+    testar_cadastro_invalido_no_menu(
+        ["1", "Ana", "", "2", "0"],
+        "Descricao do chamado deve ser informada.",
+    )
+
+
 casos = [
     ("lista vazia", teste_ordenacao_lista_vazia),
     ("um elemento", teste_ordenacao_um_elemento),
@@ -137,6 +164,8 @@ casos = [
     ("vários desfazimentos consecutivos", teste_varios_desfazimentos_consecutivos),
     ("consistencia apos operacoes sucessivas", teste_consistencia_estados_apos_operacoes_sucessivas),
     ("dados invalidos", teste_abrir_chamado_dados_invalidos),
+    ("nome vazio no menu", teste_nome_vazio_no_menu),
+    ("descricao vazia no menu", teste_descricao_vazia_no_menu),
 ]
 
 resultados = [testar(nome, func) for nome, func in casos]

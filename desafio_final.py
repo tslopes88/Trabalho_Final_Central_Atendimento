@@ -195,7 +195,10 @@ def menu():
             nome = input("Nome: ")
             desc = input("Descricao: ")
             prio = ler_inteiro("Prioridade (1-3): ", 1, 3)
-            mostrar(abrir_chamado(fila, todos, nome, desc, prio))
+            try:
+                mostrar(abrir_chamado(fila, todos, nome, desc, prio))
+            except ValueError as erro:
+                print(f"Erro: {erro}")
         elif op == 2:
             c = atender_proximo(fila, historico)
             print("Atendendo:" if c else "Fila vazia.")

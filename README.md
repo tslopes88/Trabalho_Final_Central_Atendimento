@@ -1,10 +1,14 @@
 # Central de Atendimento
 
-Trabalho final de Python que simula o atendimento de chamados em uma equipe de suporte. O programa permite cadastrar solicitações, atender pela ordem de chegada e acompanhar os chamados pelo terminal.
+Trabalho final de Python — ADS
+
+Aluno: Thiago da Silva Lopes
+
+O programa simula o atendimento de chamados em uma equipe de suporte. É possível cadastrar solicitações, atender pela ordem de chegada e acompanhar os chamados pelo terminal.
 
 ## Sobre o projeto
 
-O exercício reúne estruturas de dados e algoritmos estudados durante a disciplina. Os chamados ficam na memória enquanto o programa está aberto; não há banco de dados nem salvamento permanente.
+Os chamados ficam na memória enquanto o programa está aberto. Ao encerrar, os dados são apagados.
 
 ## Funcionalidades
 
@@ -14,7 +18,7 @@ O exercício reúne estruturas de dados e algoritmos estudados durante a discipl
 - Listar os chamados pendentes por prioridade.
 - Buscar um chamado pelo protocolo.
 - Consultar o total de chamados e a contagem por prioridade.
-- Consultar no menu um guia de uso com as etapas e as informacoes do sistema.
+- Consultar no menu um guia de uso com as etapas e as informações do sistema.
 
 ## Demonstração
 

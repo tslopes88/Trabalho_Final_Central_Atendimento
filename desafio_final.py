@@ -1,12 +1,10 @@
 """
 DESAFIO FINAL - Central de Atendimento
-Aluno(a): ____________________
+Aluno: Thiago da Silva Lopes - ADS
 
-Complete as funcoes marcadas com TODO, de cima para baixo (Nivel 1 ao 4).
-O menu no final do arquivo ja esta pronto: NAO precisa mexer nele.
-
-Para conferir seu progresso, rode:   python desafio_final_testes.py
-Para usar o programa de verdade:     python desafio_final.py
+Programa de atendimento de chamados feito para o trabalho final.
+Para executar: python desafio_final.py
+Para rodar os testes: python desafio_final_testes.py
 """
 
 from collections import deque
@@ -27,13 +25,7 @@ def criar_chamado(protocolo, nome, descricao, prioridade):
 
 
 def abrir_chamado(fila, todos, nome, descricao, prioridade):
-    """
-    TODO:
-    1. O protocolo e o proximo numero: len(todos) + 1
-    2. Crie o chamado com criar_chamado(...)
-    3. Coloque o chamado no FIM da fila e tambem na lista 'todos'
-    4. Devolva o chamado criado
-    """
+    """Cria um chamado e o coloca no fim da fila."""
     if not isinstance(nome, str) or not nome.strip():
         raise ValueError("Nome do chamado deve ser informado.")
     if not isinstance(descricao, str) or not descricao.strip():
@@ -49,14 +41,7 @@ def abrir_chamado(fila, todos, nome, descricao, prioridade):
 
 
 def atender_proximo(fila, historico):
-    """
-    TODO:
-    1. Se a fila estiver vazia, devolva None
-    2. Retire o chamado da FRENTE da fila (dica: popleft)
-    3. Mude o status dele para "atendido"
-    4. Empilhe o chamado no 'historico' (dica: append)
-    5. Devolva o chamado atendido
-    """
+    """Atende o primeiro chamado pendente e registra o atendimento."""
     if not fila:
         return None
 
@@ -70,14 +55,7 @@ def atender_proximo(fila, historico):
 # NIVEL 2 - PILHA: desfazer o ultimo atendimento
 # ---------------------------------------------------------------
 def desfazer_atendimento(fila, historico):
-    """
-    TODO:
-    1. Se o 'historico' estiver vazio, devolva None
-    2. Desempilhe o ultimo chamado do 'historico' (dica: pop)
-    3. Mude o status de volta para "pendente"
-    4. Coloque-o na FRENTE da fila (dica: appendleft)
-    5. Devolva o chamado
-    """
+    """Desfaz o atendimento mais recente e devolve o chamado à fila."""
     if not historico:
         return None
 
@@ -91,15 +69,7 @@ def desfazer_atendimento(fila, historico):
 # NIVEL 3 - ORDENACAO: lista de pendentes por prioridade
 # ---------------------------------------------------------------
 def ordenar_por_prioridade(chamados):
-    """
-    TODO: devolva uma NOVA lista com os chamados em ordem de prioridade,
-    do maior (3) para o menor (1).
-    Regras:
-    - NAO use sorted() nem .sort(): implemente Bubble, Selection ou Insertion.
-    - NAO altere a lista recebida (comece com: v = list(chamados)).
-    - Chamados com a mesma prioridade mantem a ordem de chegada.
-      (Pense: qual comparacao garante isso? < ou <= ?)
-    """
+    """Retorna uma nova lista de chamados ordenada por prioridade."""
     ordenados = list(chamados)
 
     for fim in range(len(ordenados) - 1, 0, -1):
@@ -121,12 +91,7 @@ def ordenar_por_prioridade(chamados):
 # NIVEL 4 - BUSCA BINARIA e RECURSAO
 # ---------------------------------------------------------------
 def buscar_protocolo(todos, protocolo):
-    """
-    TODO: busca binaria na lista 'todos' (ela ja esta em ordem de protocolo,
-    porque os protocolos sao criados em sequencia: 1, 2, 3...).
-    Devolva o chamado encontrado ou None. NAO use um laco 'for' que
-    percorra a lista inteira.
-    """
+    """Procura um protocolo na lista de chamados."""
     inicio = 0
     fim = len(todos) - 1
 
@@ -145,13 +110,7 @@ def buscar_protocolo(todos, protocolo):
 
 
 def contar_por_prioridade(chamados, prioridade, i=0):
-    """
-    TODO: conte, RECURSIVAMENTE, quantos chamados tem a prioridade dada.
-    Proibido usar for, while ou sum(). Dicas:
-    - Caso base: se i >= len(chamados), nao ha mais nada a contar (0).
-    - Passo recursivo: (1 se o chamado i tem a prioridade, senao 0)
-                       + contar_por_prioridade(chamados, prioridade, i + 1)
-    """
+    """Conta recursivamente os chamados com a prioridade informada."""
     if i >= len(chamados):
         return 0
 

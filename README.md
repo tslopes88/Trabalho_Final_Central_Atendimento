@@ -32,6 +32,7 @@ O trecho abaixo resume uma execução: um chamado é cadastrado, atendido e incl
 4) Listar pendentes por prioridade
 5) Buscar por protocolo
 6) Relatorio
+7) Guia de uso
 0) Sair
 Escolha: 1
 Nome: Ana

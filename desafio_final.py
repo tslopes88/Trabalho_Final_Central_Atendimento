@@ -194,7 +194,7 @@ def menu():
         elif op == 1:
             nome = input("Nome: ")
             desc = input("Descricao: ")
-            prio = ler_inteiro("Prioridade (1-3): ", 1, 3)
+            prio = ler_inteiro("Prioridade (1=baixa, 2=media, 3=alta): ", 1, 3)
             try:
                 mostrar(abrir_chamado(fila, todos, nome, desc, prio))
             except ValueError as erro:

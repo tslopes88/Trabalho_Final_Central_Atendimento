@@ -130,10 +130,18 @@ def teste_abrir_chamado_dados_invalidos():
 
 def testar_cadastro_invalido_no_menu(entradas, mensagem_erro):
     saida = StringIO()
-    with patch("builtins.input", side_effect=entradas), redirect_stdout(saida):
+    prompts = []
+    respostas = iter(entradas)
+
+    def responder_entrada(mensagem):
+        prompts.append(mensagem)
+        return next(respostas)
+
+    with patch("builtins.input", side_effect=responder_entrada), redirect_stdout(saida):
         d.menu()
 
     texto = saida.getvalue()
+    assert "Prioridade (1=baixa, 2=media, 3=alta): " in prompts
     assert mensagem_erro in texto
     assert "Ate a proxima!" in texto
 

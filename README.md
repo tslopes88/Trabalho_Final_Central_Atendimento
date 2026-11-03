@@ -35,7 +35,7 @@ O trecho abaixo resume uma execução: um chamado é cadastrado, atendido e incl
 Escolha: 1
 Nome: Ana
 Descricao: Internet instavel
-Prioridade (1-3): 3
+Prioridade (1=baixa, 2=media, 3=alta): 3
 #001 | prioridade 3 | Ana: Internet instavel [pendente]
 
 Escolha: 2

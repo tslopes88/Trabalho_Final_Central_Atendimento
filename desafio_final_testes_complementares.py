@@ -160,6 +160,27 @@ def teste_descricao_vazia_no_menu():
     )
 
 
+def teste_guia_de_uso_no_menu():
+    saida = StringIO()
+    with patch("builtins.input", side_effect=["7", "0"]), redirect_stdout(saida):
+        d.menu()
+
+    texto = saida.getvalue()
+    for trecho in (
+        "7) Guia de uso",
+        "=== GUIA DE USO ===",
+        "1 = baixa, 2 = media, 3 = alta",
+        "mais antigo (FIFO)",
+        "ultimo atendido",
+        "pendentes por prioridade",
+        "Buscar por protocolo",
+        "quantidade por prioridade",
+        "apagados ao encerrar o programa",
+        "Ate a proxima!",
+    ):
+        assert trecho in texto
+
+
 casos = [
     ("lista vazia", teste_ordenacao_lista_vazia),
     ("um elemento", teste_ordenacao_um_elemento),
@@ -174,6 +195,7 @@ casos = [
     ("dados invalidos", teste_abrir_chamado_dados_invalidos),
     ("nome vazio no menu", teste_nome_vazio_no_menu),
     ("descricao vazia no menu", teste_descricao_vazia_no_menu),
+    ("guia de uso no menu", teste_guia_de_uso_no_menu),
 ]
 
 resultados = [testar(nome, func) for nome, func in casos]

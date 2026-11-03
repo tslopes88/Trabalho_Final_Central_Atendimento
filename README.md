@@ -14,6 +14,7 @@ O exercício reúne estruturas de dados e algoritmos estudados durante a discipl
 - Listar os chamados pendentes por prioridade.
 - Buscar um chamado pelo protocolo.
 - Consultar o total de chamados e a contagem por prioridade.
+- Consultar no menu um guia de uso com as etapas e as informacoes do sistema.
 
 ## Demonstração
 

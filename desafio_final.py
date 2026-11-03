@@ -175,6 +175,23 @@ def mostrar(chamado):
           f"{chamado['nome']}: {chamado['descricao']} [{chamado['status']}]")
 
 
+def mostrar_guia():
+    print("\n=== GUIA DE USO ===")
+    print("1) Abrir chamado: informe nome, descricao e prioridade.")
+    print("   Prioridades: 1 = baixa, 2 = media, 3 = alta.")
+    print("   O sistema cria um protocolo e inicia o chamado como pendente.")
+    print("2) Atender proximo: atende o chamado pendente mais antigo (FIFO).")
+    print("3) Desfazer ultimo atendimento: devolve o ultimo atendido ao")
+    print("   inicio da fila. Ele sera o proximo a ser atendido (LIFO).")
+    print("4) Listar pendentes: mostra os chamados pendentes por prioridade,")
+    print("   da mais alta para a mais baixa. A fila de atendimento nao muda.")
+    print("5) Buscar por protocolo: digite o numero recebido ao abrir o chamado.")
+    print("6) Relatorio: mostra totais e a quantidade por prioridade.")
+    print("   As quantidades por prioridade incluem todos os chamados abertos.")
+    print("Use 7 para consultar este guia novamente e 0 para sair.")
+    print("Os dados ficam apenas na memoria e sao apagados ao encerrar o programa.")
+
+
 def menu():
     fila, todos, historico = deque(), [], []
     while True:
@@ -185,8 +202,9 @@ def menu():
         print("4) Listar pendentes por prioridade")
         print("5) Buscar por protocolo")
         print("6) Relatorio")
+        print("7) Guia de uso")
         print("0) Sair")
-        op = ler_inteiro("Escolha: ", 0, 6)
+        op = ler_inteiro("Escolha: ", 0, 7)
 
         if op == 0:
             print("Ate a proxima!")
@@ -224,6 +242,8 @@ def menu():
                   f"Atendidos: {len(historico)}")
             for p in (3, 2, 1):
                 print(f"Prioridade {p}: {contar_por_prioridade(todos, p)}")
+        elif op == 7:
+            mostrar_guia()
 
 
 if __name__ == "__main__":
